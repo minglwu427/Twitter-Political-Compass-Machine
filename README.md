@@ -8,14 +8,14 @@ With social media, like Twitter, being used as a powerful communication method. 
 ## 2. Data
 The Data is scrapped from the Web using Twitter API.  There is a 7 days limit on the free version of Twitter API.  Therefore, I have scrapped the tweets of all US Senators and Presidential Candidates (It is an election year) between the date of 09-07-2020 to 09-12-20.  However, this machine is designated to be a continuously evolving model and requires constant updates.  
 
-The link to my Data Wrangling is :  
 
 ## 3. Methodology
 Instead of evaluating all of the senator’s tweets as a whole, which would cause the number of features to become overly large, We have decided only to use the tweets of leaders of each political party.  How do we determine the political leaders?  We selected names which are known to commoners.  For example, if today, I asked you who the senators of Idaho is?  You probably have no idea, but I would like to bet that you know Mike Pence, Mitch McConnell.  To make a list even and prevent Data Imbalance, I manually selected 4 leaders from each party and used all the tweets as features.  
 
-The lists of leaders are 
-Democrats: Joe Biden (Presidential Nominee), Kamala Harris (VP Nominee), Bernie Sanders, Elizabeth Warren
-Republicans: Donald Trump (President), Mike Pence (Vice President), Mitch McConnell, Ted Cruz
+The lists of leaders are
+
+<br> Democrats: Joe Biden (Presidential Nominee), Kamala Harris (VP Nominee), Bernie Sanders, Elizabeth Warren
+<br> Republicans: Donald Trump (President), Mike Pence (Vice President), Mitch McConnell, Ted Cruz
 
 The predictive features and Machine Learning model will be focusing on these individual only
 
@@ -38,6 +38,8 @@ To add in the readability score, we use the **textstats** package from python.  
 
 Then we evaluate their overall trend using Histograms.
 
+<img src="report_graph/Senate_ARI_Score.png">
+<img src="report_graph/Senate_DCR_Score.png">
 <img src="report_graph/Senate_TS_Score.png">
 
 Base on the histogram, there are no significant differences between the tweets made by Republicans vs Democrats.  This might be the fact that tweets only allow 280 characters maximum.  Therefore, there is not enough length to capture the difference between the two parties.  
@@ -112,7 +114,8 @@ Specifically, we are using all leaders' tweets as our corpus and see if the poli
 
 We then graphed the distribution of the BoW scores to a normalized histogram.  
 
-**Pictures Pictures**
+<img src="report_graph/Dem_BOW_score.png">
+<img src="report_graph/Rep_BOW_score.png">
 
 In general, we can see that Democrats have a higher Democrats BoW score than their Republican BoW score, while the same trend is reverse on Republican.  However, the differences are so subtle that perhaps we need either A) a more sophisticated feature engineering method or B) An alternative way to look at the final result
 
@@ -129,7 +132,7 @@ These words all have the same meaning.  However, they are different vector in Ba
 
 TF-IDF will be the last and the most sophisticated vectorizer that we used.  TF-IDF (Term Frequency Inverse Document Frequency) is a vector transformation that builds upon the bag of words vector and then refines it according to the words' proportionality in the corpus.  Doing this allows us to generate features without worrying that the number of tweets the leader's made significantly different from one another.  The equation of the TF-IDF transformation is show below
 
-**Pictures Pictures**
+<img src="report_graph/tf_idf_explaination.png">
 
 In addition to the TF-IDF, we have also generated the vectorization of n-gram of words.  N-Grams of terms allow us to distinguish contiguous sequences that may have a specific meaning when used together.  For example, ‘’Trump sucks” have a precise definition.  However, when you inference Trump and sucks individually, this pattern might not be feasible.  Another example of a sentence being separate into Bi-grams is 
 
