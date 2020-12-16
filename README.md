@@ -19,10 +19,10 @@ The lists of leaders are
 
 The predictive features and Machine Learning model will be focusing on these individual only
 
-## 4.Data Cleaning + Exploratory Data Analysis + Feature Engineering
+## 4. Data Cleaning + Exploratory Data Analysis + Feature Engineering
 Unlike numeric features, when dealing with text (or tweets), the correlation between text is difficult to quantify, and there is really no standard way or order to handle text.  For example, to evaluate the tweets' sentiment, it is probably better to keep the stop words.  However, stop words are terrible for a bag of words feature engineering because they are usually meaningless.  Therefore, I will provide a chronic list of the steps I took to generate dataframe for my predictions.
 
-### 1.Screen out Retweet - Remove Hyperlink  
+### 1. Screen out Retweet - Remove Hyperlink  
 Since this project aims to evaluate tweets from the leader and their pattern, we are not interested in the retweets, which is their words even if it might resonate with their message.  This step is easy because tweeters automatically format retweet as RT.  Just find them and remove them.
 
 We also remove all hyperlinks because they are not part of the speech.  Furthermore, they can mess up the readability score evaluation.  
@@ -72,7 +72,7 @@ Without the stop words, the difference between the word clouds become much more 
 
 With these words cloud, there are some reasons to believe that we can train a machine that separates the tweet of republicans and democrats leader.  
 
-## 5.Exploratory Data Analysis + Feature Engineering (Part 2)
+## 5. Exploratory Data Analysis + Feature Engineering (Part 2)
 While word clouds provide us with good visuals representative of the corpus, it is still very qualitative.  We need more concise features for us to train any machine learning model.  In this section, I will introduce more workable features using a couple of standard NLP techniques and see if we can have potentially train models from it.  
 
 ### 1. Adding Sentimentation Score
